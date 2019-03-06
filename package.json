@@ -1,0 +1,22 @@
+{
+  "name": "git-publish-cli",
+  "version": "1.0.0",
+  "bin": {
+    "git-cli": "./index.js",
+    "git-cli-branch": "./bin/branch.js"
+  },
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "commander": "^2.19.0"
+  },
+  "devDependencies": {
+    "shelljs": "^0.8.3"
+  }
+}
