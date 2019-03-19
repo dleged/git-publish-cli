@@ -21,7 +21,7 @@ function localHaveUpdate(){
 }
 
 function isMaster() {
-	if(exec.exec('git branch').stdout !== '* master') {
+	if(exec('git branch').stdout !== '* master') {
 		console.error('请先合并branch到master分支！');
 		return false;
 	}
