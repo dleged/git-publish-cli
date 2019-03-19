@@ -1,3 +1,5 @@
+'use strict';
+
 const shell = require('shelljs');
 
 let _exec_ = shell.exec;
