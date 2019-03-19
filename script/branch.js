@@ -31,7 +31,7 @@ function isMaster() {
 
 module.exports = function() {
 	if(!isMaster()) return false;
-	if(exec(`git checkout branch ${daily/version}`) !== 0) {
+	if(exec(`git checkout branch daily/${version}`) !== 0) {
 		console.log(1);
 	};
 }
