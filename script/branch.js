@@ -20,8 +20,9 @@ function localHaveUpdate(){
 	};
 }
 
+
 function isMaster() {
-	if(exec('git branch').stdout !== '* master') {
+	if(!exec('git branch').stdout.includes('* master')) {
 		console.error('请先合并branch到master分支！');
 		return false;
 	}
