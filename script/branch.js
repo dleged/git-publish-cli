@@ -31,7 +31,8 @@ function isMaster() {
 
 module.exports = function() {
 	if(!isMaster()) return false;
-	if(exec(`git checkout -b daily/${version}`) !== 0) {
-		console.log(1);
+	let newDailyBr = `daily/${version}`;
+	if(exec(`git checkout -b ${newDailyBr}`) !== 0) {
+		console.log(`🆕 分支 ${newDailyBr}`);
 	};
 }
