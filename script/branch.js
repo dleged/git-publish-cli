@@ -4,14 +4,13 @@ const { exec,exit } = require('./helpers');
 const chalk = require('chalk');
 const version = require('../package').version;
 
-function hasLocalChange(){
-	if(exec('git status --s').stdout.trim()){
+function localHasChange(){
+	if(exec('git status --porcelain').stdout.trim()){
 		console.log(chalk.red('❌ 本地有文件修改，请先完成commit或checkout！'));
 		exit(1);
 	};
 }
-//检测本地是否有代码未提交
-hasLocalChange();
+localHasChange();
 
 
 function localHaveUpdate(){
@@ -21,9 +20,8 @@ function localHaveUpdate(){
 	};
 }
 
-
 function isMaster() {
-	if(!exec('git branch').stdout.includes('* master')) {
+	if(exec('git branch').stdout !== '* master') {
 		console.error('请先合并branch到master分支！');
 		return false;
 	}
@@ -32,7 +30,7 @@ function isMaster() {
 
 module.exports = function() {
 	if(!isMaster()) return false;
-	if(exec(`git checkout -b daily/${version}`) !== 0) {
+	if(exec(`git checkout branch ${daily/version}`) !== 0) {
 		console.log(1);
 	};
 }
