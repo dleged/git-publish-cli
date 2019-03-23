@@ -1,6 +1,7 @@
 {
   "name": "git-publish-cli",
   "version": "1.0.0",
+  "mail": "duanduanf@gmail.com",
   "bin": {
     "git-cli": "./index.js",
     "git-cli-branch": "./bin/branch.js",
