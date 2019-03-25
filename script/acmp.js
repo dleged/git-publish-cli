@@ -1,6 +1,6 @@
 'use strict';
 
-const { exec,exit,haveChange } = require('./helpers');
+const { exec,exit,setUpStream } = require('./helpers');
 const chalk = require('chalk');
 
 function _currentBranch(){
@@ -9,13 +9,14 @@ function _currentBranch(){
 }
 
 
-function _setUpSteam(){
+function _setUpStream(){
 	let branch = _currentBranch();
-	let msg = exec(`git -u origin ${branch}`);
+	setUpStream(branch);
 }
 
 
 module.exports = function acmp(){
+	_setUpStream();
 	let message = [].slice.apply(process.argv)[2] || 'Daily Development';
 	exec(`git add . && git commit -m '${message}' && git push`);
 }

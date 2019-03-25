@@ -14,6 +14,10 @@ exports.exec = function(){
 
 exports.exit = __exit__;
 
+exports.setUpStream = function setUpStream(branch){
+	_exec_(`git -u origin ${branch}`);
+}
+
 exports.haveChange = function(){
 		if(_exec_('git status --porcelain').stdout.trim()){
 			console.log(chalk.red('❌ 本地有文件修改，请先完成commit或checkout！'));
