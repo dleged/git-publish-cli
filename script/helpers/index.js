@@ -15,7 +15,7 @@ exports.exec = function(){
 exports.exit = __exit__;
 
 exports.setUpStream = function setUpStream(branch){
-	_exec_(`git push -u origin ${branch}`);
+	_exec_(`git push --set-upstream origin ${branch}`);
 }
 
 exports.haveChange = function(){
