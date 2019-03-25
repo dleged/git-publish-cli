@@ -1,4 +1,4 @@
 #!/usr/bin/env node
 
-const branch = require('../script/acmp.js')
-branch();
+const acmp = require('../script/acmp.js')
+acmp();
