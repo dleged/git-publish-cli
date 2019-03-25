@@ -1,15 +1,10 @@
 'use strict';
 
-const { exec,exit } = require('./helpers');
+
+const { exec,exit,haveChange } = require('./helpers');
 const chalk = require('chalk');
 const version = require('../package').version;
 
-function localHasChange(){
-	if(exec('git status --porcelain').stdout.trim()){
-		console.log(chalk.red('❌ 本地有文件修改，请先完成commit或checkout！'));
-		exit(1);
-	};
-}
 
 function localHaveUpdate(){
 	if(exec('git pull --porcelain').stdout.trim()){
@@ -27,7 +22,7 @@ function isMaster() {
 }
 
 module.exports = function() {
-	localHasChange();
+	haveChange();
 	if(!isMaster()) return false;
 	let newDailyBr = `daily/${version}`;
 	if(exec(`git checkout -b ${newDailyBr}`) !== 0) {
