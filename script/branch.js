@@ -10,8 +10,6 @@ function localHasChange(){
 		exit(1);
 	};
 }
-localHasChange();
-
 
 function localHaveUpdate(){
 	if(exec('git pull --porcelain').stdout.trim()){
@@ -19,7 +17,6 @@ function localHaveUpdate(){
 		exit(1);
 	};
 }
-
 
 function isMaster() {
 	if(!exec('git branch').stdout.includes('* master')) {
@@ -30,6 +27,7 @@ function isMaster() {
 }
 
 module.exports = function() {
+	localHasChange();
 	if(!isMaster()) return false;
 	let newDailyBr = `daily/${version}`;
 	if(exec(`git checkout -b ${newDailyBr}`) !== 0) {
