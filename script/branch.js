@@ -5,7 +5,7 @@ const chalk = require('chalk');
 const version = require('../package').version;
 
 function hasLocalChange(){
-	if(exec('git status --s').stdout.trim()){
+	if(exec('git status --short').stdout.trim()){
 		console.log(chalk.red('❌ 本地有文件修改，请先完成commit或checkout！'));
 		exit(1);
 	};
@@ -14,17 +14,10 @@ function hasLocalChange(){
 hasLocalChange();
 
 
-function localHaveUpdate(){
-	if(exec('git pull --porcelain').stdout.trim()){
-		console.log(chalk.red('❌ 本地有文件修改，请先完成commit或checkout！'));
-		exit(1);
-	};
-}
-
 
 function isMaster() {
 	if(!exec('git branch').stdout.includes('* master')) {
-		console.error('请先合并branch到master分支！');
+		console.error('🈲️master禁止push代码');
 		return false;
 	}
 	return true;
