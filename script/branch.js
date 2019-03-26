@@ -4,14 +4,6 @@ const { exec,exit } = require('./helpers');
 const chalk = require('chalk');
 const version = require('../package').version;
 
-function localHasChange(){
-	if(exec('git status --porcelain').stdout.trim()){
-		console.log(chalk.red('❌ 本地有文件修改，请先完成commit或checkout！'));
-		exit(1);
-	};
-}
-localHasChange();
-
 
 function localHaveUpdate(){
 	if(exec('git pull --porcelain').stdout.trim()){
