@@ -5,7 +5,6 @@ const { exec,exit,haveChange } = require('./helpers');
 const chalk = require('chalk');
 const version = require('../package').version;
 
-
 function localHaveUpdate(){
 	if(exec('git pull --porcelain').stdout.trim()){
 		console.log(chalk.red('❌ 本地有文件修改，请先完成commit或checkout！'));
@@ -24,7 +23,7 @@ function isMaster() {
 module.exports = function() {
 	haveChange();
 	if(!isMaster()) return false;
-	let newDailyBr = `daily/${version}`;
+	let newDailyBr = `daily_${version}`;
 	if(exec(`git checkout -b ${newDailyBr}`) !== 0) {
 		console.log(`🆕 分支 ${newDailyBr}`);
 	};

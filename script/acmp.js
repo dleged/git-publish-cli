@@ -14,7 +14,6 @@ function _setUpStream(){
 	setUpStream(branch);
 }
 
-
 module.exports = function acmp(){
 	_setUpStream();
 	let message = [].slice.apply(process.argv)[2] || 'Daily Development';
