@@ -1,6 +1,5 @@
 'use strict';
 
-
 const { exec,exit,haveChange } = require('./helpers');
 const chalk = require('chalk');
 const version = require('../package').version;
