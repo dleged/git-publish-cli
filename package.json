@@ -1,9 +1,11 @@
 {
   "name": "git-publish-cli",
   "version": "1.0.0",
+  "mail": "duanduanf@gmail.com",
   "bin": {
     "git-cli": "./index.js",
-    "git-cli-branch": "./bin/branch.js"
+    "git-cli-branch": "./bin/branch.js",
+    "git-cli-acmp": "./bin/acmp.js"
   },
   "description": "",
   "main": "index.js",

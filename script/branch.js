@@ -1,9 +1,8 @@
 'use strict';
 
-const { exec,exit } = require('./helpers');
+const { exec,exit,haveChange } = require('./helpers');
 const chalk = require('chalk');
 const version = require('../package').version;
-
 
 function localHaveUpdate(){
 	if(exec('git pull --porcelain').stdout.trim()){
@@ -21,8 +20,10 @@ function isMaster() {
 }
 
 module.exports = function() {
+	haveChange();
 	if(!isMaster()) return false;
-	if(exec(`git checkout branch ${daily/version}`) !== 0) {
-		console.log(1);
+	let newDailyBr = `daily_${version}`;
+	if(exec(`git checkout -b ${newDailyBr}`) !== 0) {
+		console.log(`🆕 分支 ${newDailyBr}`);
 	};
 }
