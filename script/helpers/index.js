@@ -11,6 +11,7 @@ function __exit__(code){
 exports.exec = function(){
 	return _exec_(...[].slice.call(arguments))
 }
+
 exports.exit = __exit__;
 
 exports.setUpStream = function setUpStream(branch){
