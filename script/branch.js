@@ -13,7 +13,10 @@ function localHaveUpdate(){
 
 function isMaster() {
 	if(exec('git branch').stdout !== '* master') {
-		console.error('请先合并branch到master分支！');
+		if(exec('git merge master')){
+			console.error('请先合并branch到master分支！');
+		}
+
 		return false;
 	}
 	return true;
