@@ -14,7 +14,7 @@ function localHaveUpdate(){
 function isDevelop() {
 	if(getCurentBranchName() !== 'develop') {
 		if(exec('git merge develop && git co develop').code === 1){
-			console.error('请先合并branch到master分支！');
+			console.error(chalk.red('❕请先合并branch到master分支！');
 		}
 		return false;
 	}
