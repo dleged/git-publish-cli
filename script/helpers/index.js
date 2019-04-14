@@ -24,3 +24,7 @@ exports.haveChange = function(){
 			__exit__(1);
 		};
 }
+
+exports.getCurentBranchName = function(){
+	return shell.exec('git rev-parse --abbrev-ref HEAD', {silent: true}).toString();
+}
