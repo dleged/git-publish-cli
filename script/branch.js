@@ -28,6 +28,6 @@ module.exports = function() {
 	if(!isDevelop()) return false;
 	let newDailyBr = `daily_${version}`;
 	if(exec(`git checkout -b ${newDailyBr}`) !== 0) {
-		console.log(`🆕 分支 ${newDailyBr}`);
+		console.log(`🆕 分支${newDailyBr}`);
 	};
 }
