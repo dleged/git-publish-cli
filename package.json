@@ -6,7 +6,7 @@
     "git-cli": "./index.js",
     "git-cli-branch": "./bin/branch.js",
     "git-cli-acmp": "./bin/acmp.js",
-    "git-cli-feature": "./bin/acmp.js"
+    "git-cli-feature": "./bin/feature.js"
   },
   "description": "",
   "main": "index.js",
