@@ -8,7 +8,6 @@ function getArgs(){
 	return [].slice.apply(process.argv);
 }
 
-
 module.exports = function() {
 	let featureName = getArgs()[2];
 	// feature 以feature/开头；
