@@ -8,23 +8,31 @@ function __exit__(code){
 	process.exit(code);
 }
 
-exports.exec = function(){
+let exit = __exit__;
+
+function exec(){
 	return _exec_(...[].slice.call(arguments))
 }
 
-exports.exit = __exit__;
-
-exports.setUpStream = function setUpStream(branch){
+function setUpStream(branch){
 	_exec_(`git push --set-upstream origin ${branch}`);
 }
 
-exports.haveChange = function(){
+function getCurentBranchName(){
+	return shell.exec('git rev-parse --abbrev-ref HEAD', {silent: true}).toString();
+}
+
+function haveChange(){
 		if(_exec_('git status --porcelain').stdout.trim()){
-			console.log(chalk.red('❌ 本地有文件修改，请先完成commit或checkout！'));
+			console.log(chalk.red(`❌ ${getCurentBranchName()}文件修改，请先完成commit或checkout！`));
 			__exit__(1);
 		};
 }
 
-exports.getCurentBranchName = function(){
-	return shell.exec('git rev-parse --abbrev-ref HEAD', {silent: true}).toString();
+module.exports = {
+	exit,
+	exec,
+	setUpStream,
+	getCurentBranchName,
+	haveChange
 }
