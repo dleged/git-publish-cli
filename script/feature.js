@@ -4,7 +4,6 @@ const { exec,exit,haveChange,getCurentBranchName } = require('./helpers');
 const CONFIGBRANCH = require('./config/config.branch.js');
 const chalk = require('chalk');
 
-console.log(CONFIGBRANCH);
 
  // feature 以feature/开头；
  // 检验传入参数是否feture/开头，若是以它开头则直接使用；
