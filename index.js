@@ -25,8 +25,8 @@ program
 
 program
   .command('*')
-  .action(function(command,options){
-    acmp(command,options);
+  .action(function(env){
+    console.log('deploying "%s"', env);
   });
 
 program.parse(process.argv);
