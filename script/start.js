@@ -8,13 +8,13 @@ module.exports = function(env,name){
 	console.log(env,name);
 	switch (env) {
 		case 'feature':
-			exec(`git-cli checkout -b dvelop ${env}/${name}`)
+			exec(`git checkout -b dvelop ${env}/${name}`)
 			break;
 		case 'hotfixes':
-			exec(`git-cli checkout -b master ${env}/${name}`)
+			exec(`git checkout -b master ${env}/${name}`)
 			break;
 		case 'release':
-			exec(`git-cli checkout -b feature/${name} ${env}/${name}`)
+			exec(`git checkout -b feature/${name} ${env}/${name}`)
 			break;
 		default:
 	}
