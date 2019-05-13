@@ -6,6 +6,7 @@ const pkg = require('./package.json');
 // const feature = require('./script/feature')
 const branch = require('./script/branch')
 const acmp = require('./script/acmp')
+const start = require('./script/start')
 require('./script/helpers/git');
 
 
@@ -20,15 +21,32 @@ program
 	.description('git add . && git commit -m "message" && git push | Quick Submit code 👍')
 	.action(acmp);
 
-
-
 program
-  .command('feature','Switch feature branches for daily development 🔨')
-  .command('hotfixes','Switch hotfixes branches for daily development 🔨')
-  .command('release','Switch release branches for daily development 🔨')
-  .option("start, --exec_start <mode>", "start new branch")
-  .option("puhlish, --exec_start <mode>", "start new branch")
-  .option("finsh, --exec_start <mode>", "start new branch")
+	.command('start [env] [name]')
+	.description('start iterating branch switching')
+	.action(start);
+
+// program
+// 	.command('finsh [env] [name]')
+// 	.description('finsh iterating branch switching')
+// 	.action(finsh);
+//
+// program
+// 	.command('puhlish [env] [name]')
+// 	.description('puhlish iterating branch switching')
+// 	.action(puhlish);
+
+
+
+
+
+// program
+//   .command('feature','Switch feature branches for daily development 🔨')
+//   .command('hotfixes','Switch hotfixes branches for daily development 🔨')
+//   .command('release','Switch release branches for daily development 🔨')
+//   .option("start, --exec_start <mode>", "start new branch")
+//   .option("puhlish, --exec_start <mode>", "start new branch")
+//   .option("finsh, --exec_start <mode>", "start new branch")
 
 // program
 //   .command('*')
