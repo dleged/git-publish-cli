@@ -8,7 +8,7 @@ module.exports = function(env,name){
 	console.log(env,name);
 	switch (env) {
 		case 'feature':
-			exec(`git checkout -b ${env}/${name} dvelop`)
+			exec(`git checkout -b ${env}/${name} develop`)
 			break;
 		case 'hotfixes':
 			exec(`git checkout -b ${env}/${name} master`)
