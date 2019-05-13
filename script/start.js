@@ -1,7 +1,6 @@
 'use strict';
 
 const { exec,exit,haveChange,getCurentBranchName } = require('./helpers');
-const CONFIGBRANCH = require('./config/config.branch.js');
 const chalk = require('chalk');
 
 module.exports = function(env,name){
