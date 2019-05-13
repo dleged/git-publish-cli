@@ -21,14 +21,15 @@ program
 	.action(acmp);
 
 
-// program
-//   .usage('<command> [options]')
-//   .command('feature','Switch feature branches for daily development 🔨')
-//   .command('hotfixes','Switch hotfixes branches for daily development 🔨')
-//   .command('release','Switch release branches for daily development 🔨')
-//   .option("start, --exec_start <mode>", "start new branch")
-//   .option("puhlish, --exec_start <mode>", "start new branch")
-//   .option("finsh, --exec_start <mode>", "start new branch")
+
+program
+  .usage('<command> [options]')
+  .command('feature','Switch feature branches for daily development 🔨')
+  .command('hotfixes','Switch hotfixes branches for daily development 🔨')
+  .command('release','Switch release branches for daily development 🔨')
+  .option("start, --exec_start <mode>", "start new branch")
+  .option("puhlish, --exec_start <mode>", "start new branch")
+  .option("finsh, --exec_start <mode>", "start new branch")
 
 // program
 //   .command('*')
