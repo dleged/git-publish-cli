@@ -23,7 +23,6 @@ program
 
 
 program
-  .usage('<command> [options]')
   .command('feature','Switch feature branches for daily development 🔨')
   .command('hotfixes','Switch hotfixes branches for daily development 🔨')
   .command('release','Switch release branches for daily development 🔨')
