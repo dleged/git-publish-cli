@@ -23,10 +23,10 @@ function isDevelop() {
 	return true;
 }
 
-module.exports = function() {
+module.exports = function(barnch) {
 	haveChange();
 	if(!isDevelop()) return false;
-	let newDailyBr = `daily_${version}`;
+	let newDailyBr = barnch;
 	if(exec(`git checkout -b ${newDailyBr}`) !== 0) {
 		console.log(`🆕 分支${newDailyBr}`);
 	};

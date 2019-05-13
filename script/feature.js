@@ -26,6 +26,7 @@ function checkBrancName(cmd,exec_start){
 	}
 }
 module.exports = function(cmd, options) {
+	// console.log(options.parent.Command,222)
 	let { exec_start,exec_publish,exec_finsh } = options;
 	console.log(exec_start,exec_publish,exec_finsh);
 	if(exec_start){//new branch

@@ -16,5 +16,5 @@ function _setUpStream(){
 module.exports = function acmp(command,message){
 	_setUpStream();
 	message = message || 'code commit';
-	exec(`git commit -m '${message}' * && git push`);
+	exec(`git add . && git commit -m '${message}' * && git push`);
 }

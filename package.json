@@ -5,10 +5,7 @@
   "bin": {
     "git-cli": "./index.js",
     "git-cli-branch": "./bin/branch.js",
-    "git-cli-acmp": "./bin/acmp.js",
-    "git-cli-feature": "./bin/feature.js",
-    "git-cli-hotfixes": "./bin/hotfixes.js",
-    "git-cli-release": "./bin/release.js"
+    "git-cli-acmp": "./bin/acmp.js"
   },
   "description": "",
   "main": "index.js",
