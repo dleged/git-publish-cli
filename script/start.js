@@ -5,6 +5,7 @@ const CONFIGBRANCH = require('./config/config.branch.js');
 const chalk = require('chalk');
 
 module.exports = function(env,name){
+	console.log(env,name);
 	switch (env) {
 		case 'feature':
 			exec(`git-cli checkout -b dvelop ${env}/${name}`)
