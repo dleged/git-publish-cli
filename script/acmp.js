@@ -13,8 +13,8 @@ function _setUpStream(){
 	setUpStream(branch);
 }
 
-module.exports = function acmp(command,message){
+module.exports = function acmp(message){
 	_setUpStream();
 	message = message || 'code commit';
-	exec(`git add . && git commit -m '${message}' * && git push`);
+	exec(`git add . && git commit -m '${message}' && git push`);
 }
