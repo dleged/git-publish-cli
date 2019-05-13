@@ -17,6 +17,7 @@ module.exports = function() {
 		if(releaseName !== releasePre){
 			releaseName = releasePre + releaseName;
 		}
+		console.log(releaseName,'232');
 		exec(`git checkout develop && git checkout -b ${releaseName}`);
 	}else{
 		console.log(chalk.red('❌ 请输入release分支名称！'));

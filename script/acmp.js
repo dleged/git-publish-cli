@@ -8,13 +8,14 @@ function _currentBranch(){
 	return msg.stdout.replace('* ','').replace('\n','');
 }
 
+
 function _setUpStream(){
 	let branch = _currentBranch();
 	setUpStream(branch);
 }
 
-module.exports = function acmp(message){
+module.exports = function acmp(){
 	_setUpStream();
-	message = message || 'code commit';
+	let message = [].slice.apply(process.argv)[2] || 'code commit';
 	exec(`git add . && git commit -m '${message}' && git push`);
 }

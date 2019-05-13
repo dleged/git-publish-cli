@@ -17,6 +17,7 @@ module.exports = function() {
 		if(hotfixesName !== hotfixesPre){
 			hotfixesName = hotfixesPre + hotfixesName;
 		}
+		console.log(hotfixesName,'232');
 		exec(`git checkout develop && git checkout -b ${hotfixesName}`);
 	}else{
 		console.log(chalk.red('❌ 请输入hotfixes分支名称！'));
