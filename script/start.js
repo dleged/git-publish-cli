@@ -10,7 +10,8 @@ module.exports = function(env,name){
 			exec(`git checkout -b ${env}/${name} develop`)
 			break;
 		case 'hotfixes':
-			exec(`git checkout -b ${env}/${name} master`)
+			exec(`git checkout master`)
+			exec(`git checkout -b ${env}/${name}`)
 			break;
 		case 'release':
 			exec(`git checkout -b ${env}/${name} feature/${name}`)
