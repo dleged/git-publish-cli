@@ -2,6 +2,7 @@
 
 const shell = require('shelljs');
 const chalk = require('chalk');
+const path = require('path');
 let _exec_ = shell.exec;
 
 function __exit__(code){
@@ -27,4 +28,12 @@ exports.haveChange = function(){
 
 exports.getCurentBranchName = function(){
 	return shell.exec('git rev-parse --abbrev-ref HEAD', {silent: true}).toString();
+}
+
+exports.getCurentVersion = function(){
+	const pkgPath = path.resolve(process.cwd,'package.json');
+	if(fs.existSync()) throw Error('Does the package exist?');
+	const pkg = require(pkgPath);
+	if(!pkg.version) throw Error('s there version in package.json?');
+	return pkg.version;
 }
