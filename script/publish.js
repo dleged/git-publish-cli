@@ -4,8 +4,6 @@ const { exec,exit,haveChange,getCurentBranchName,getCurentVersion } = require('.
 const chalk = require('chalk');
 
 module.exports = function(env,name){
-	// let mergeBranchName = `${env}-${name}`
-	// exec(`git-cli acmp finsh ${name} develop`)
 	let tagVersion = 'v' + getCurentVersion();
 	if(env === 'hotfixes' || env === 'release'){
 		exec(`git checkout master`)

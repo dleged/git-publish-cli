@@ -1,5 +1,4 @@
 'use strict';
-
 const { exec,exit,haveChange,getCurentBranchName } = require('./helpers');
 const chalk = require('chalk');
 let hotfixesPre = 'hotfixes/';
