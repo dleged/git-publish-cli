@@ -1,4 +1,4 @@
 #!/usr/bin/env node
 
-const hotfixes = require('../script/hotfixes.js')
-hotfixes();
+const hotfix = require('../script/hotfix.js')
+hotfix();

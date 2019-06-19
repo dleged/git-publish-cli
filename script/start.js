@@ -10,7 +10,7 @@ module.exports = function(env,name){
 		case 'feature':
 			exec(`git checkout -b ${mergeBranchName} develop`)
 			break;
-		case 'hotfixes':
+		case 'hotfix':
 			exec(`git checkout master`)
 			exec(`git checkout -b ${mergeBranchName}`)
 			break;

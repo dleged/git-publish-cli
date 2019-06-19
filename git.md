@@ -1,3 +1,26 @@
+## 什么是git flow分支管理模型
+------
+git分支主要分为: 主干(master)、分支(branch)、标记(tag)
+
+> * 主干master分支,线上正在运行的源码
+> * 预发分支release-?,测试完成后合并到master
+> * 开发分支feature-?,必须从master checkout开发分支,测试完成后合并到预发分支
+> * bug修复分支hotfix-?,必须从master checkout开发分支,修复bug后直接合并到master
+
+#### 1. 预发分支release-?
+
+
+
+
+
+
+
+
+
+
+
+
+
 Git Flow 是什么
 Git Flow是构建在Git之上的一个组织软件开发活动的模型，是在Git之上构建的一项软件开发最佳实践。Git Flow是一套使用Git进行源代码管理时的一套行为规范和简化部分Git操作的工具。
 

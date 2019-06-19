@@ -13,7 +13,7 @@ module.exports = function(env,name){
 			exec(`git branch -d ${mergeBranchName}`)
 			exec(`git push origin develop`)
 			break;
-		case 'hotfixes':
+		case 'hotfix':
 			exec(`git checkout develop`)
 			exec(`git merge --no-ff ${mergeBranchName} && git push`)
 			break;
