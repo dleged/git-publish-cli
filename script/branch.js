@@ -26,7 +26,9 @@ function isDevelop() {
 module.exports = function(env,name) {
 	haveChange();
 	if(!isDevelop()) return false;
-	console.log(name,version);
+	if(typeof name === '[Object object]' ){
+		name = version;
+	}
 	let newDailyBr = `feature-${name}` || `feature-${version}`;
 	if(exec(`git checkout -b ${newDailyBr}`) !== 0) {
 		console.log(`✅ 新建分支${newDailyBr}完成`);
