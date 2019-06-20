@@ -6,7 +6,7 @@ const version = require('../package').version;
 
 function localHaveUpdate(){
 	if(exec('git pull --porcelain').stdout.trim()){
-		console.log(chalk.red('❌ 本地有文件修改，请先完成commit或checkout！'));
+		console.log(chalk.red('❌ 当前分支有文件变更，请先提交或者checkout'));
 		exit(1);
 	};
 }
@@ -27,6 +27,7 @@ module.exports = function(env,name) {
 	haveChange();
 	if(!isDevelop()) return false;
 	let newDailyBr = `feature-${name}` || `feature-${version}`;
+	console.log(Date.now);
 	if(exec(`git checkout -b ${newDailyBr}`) !== 0) {
 		console.log(`🆕 分支${newDailyBr}`);
 	};
