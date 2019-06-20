@@ -26,7 +26,6 @@ function isDevelop() {
 module.exports = function(env,name) {
 	haveChange();
 	if(!isDevelop()) return false;
-
 	let newDailyBr = `feature-${name}` || `feature-${version}`;
 	if(exec(`git checkout -b ${newDailyBr}`) !== 0) {
 		console.log(`🆕 分支${newDailyBr}`);
