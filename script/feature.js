@@ -17,7 +17,6 @@ module.exports = function() {
 		if(featureName !== featurePre){
 			featureName = featurePre + featureName;
 		}
-		console.log(featureName,'232');
 		exec(`git checkout develop && git checkout -b ${featureName}`);
 	}else{
 		console.log(chalk.red('❌ 请输入feature分支名称！'));

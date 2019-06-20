@@ -16,7 +16,7 @@ function isDevelop() {
 		if(exec('git merge develop && git co develop').code === 0){
 			return true;
 		}else{
-			console.error('请先合并branch到master分支！');
+			console.error('请先合并当前branch到master分支！');
 			return false;
 		}
 	}
