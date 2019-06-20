@@ -26,7 +26,7 @@ function isDevelop() {
 module.exports = function(env,name) {
 	haveChange();
 	if(!isDevelop()) return false;
-	if(typeof name === '[Object object]' ){
+	if(typeof name === 'object' ){
 		name = version;
 	}
 	let newDailyBr = `feature-${name}` || `feature-${version}`;
