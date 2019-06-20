@@ -28,6 +28,6 @@ module.exports = function(env,name) {
 	if(!isDevelop()) return false;
 	let newDailyBr = `feature-${name}` || `feature-${version}`;
 	if(exec(`git checkout -b ${newDailyBr}`) !== 0) {
-		console.log(`🆕 分支${newDailyBr}`);
+		console.log(`✅ 新建分支${newDailyBr}完成`);
 	};
 }
