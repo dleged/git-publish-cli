@@ -21,7 +21,7 @@ exports.setUpStream = function setUpStream(branch){
 
 exports.haveChange = function(){
 		if(_exec_('git status --porcelain').stdout.trim()){
-			console.log(chalk.red('❌ 本地有文件修改，请先完成commit或checkout！'));
+			console.log(chalk.red('❕ 当前分支有文件变更，请先提交或者checkout'));
 			__exit__(1);
 		};
 }
