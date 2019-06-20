@@ -13,7 +13,8 @@ require('./script/helpers/git');
 
 program
 	.version(pkg.version)
-	.command('branch [barnch]','Checkout new branch by master')
+	.command('branch [barnch]')
+	.description('Checkout new branch by master')
   .alias('br')
 	.action(branch);
 
