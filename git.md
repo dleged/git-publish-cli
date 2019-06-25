@@ -35,53 +35,53 @@ develop分支是保存当前最新开发成果的分支。通常这个分支上�
 
 ``` feater-name
 来自于:
-	develop
+ develop
 分支必须merge回:
-	develop
+ develop
 也即,开始一个feature分支,是从develop分支检出;完成feature分支后,必须将代码合并develop分支;
-	--- start ---
-	$ git checkout -b feature-1.0 develop
-	--- finsh ---
-	$ git checkout develop
-	$ git merge --no-ff feature-1.0
-	$ git branch -d feature-1.0
-	$ git push origin develop
+--- start ---
+ $ git checkout -b feature-1.0 develop
+--- finsh ---
+ $ git checkout develop
+ $ git merge --no-ff feature-1.0
+ $ git branch -d feature-1.0
+ $ git push origin develop
 ```
 
 #### 2.Release branches 开发分支Release-*
 
 ``` Release-name
 来自于:
-	develop
+ develop
 分支必须merge回:
-	develop and master
+ develop and master
 也即,开始一个release分支,是release分支检出;完成feature分支后,必须将代码合并develop和master分支;
-	--- start ---
-	$ git checkout -b release-1.0 develop
-	--- finsh ---
-	$ git checkout master
-	$ git merge --no-ff release-1.0
-	$ git tag -a 1.0
-	$ git checkout develop
-	$ git merge --no-ff release-1.0
-	$ git branch -d release-1.0
+--- start ---
+ $ git checkout -b release-1.0 develop
+--- finsh ---
+ $ git checkout master
+ $ git merge --no-ff release-1.0
+ $ git tag -a 1.0
+ $ git checkout develop
+ $ git merge --no-ff release-1.0
+ $ git branch -d release-1.0
 ```
 
 #### 2.Hotfix branches 开发分支Hotfix-*
 
 ``` Hotfix-name
 来自于:
-	master
+ master
 分支必须merge回:
-	develop and master
+ develop and master
 也即,开始一个Hotfix分支,是从develop分支检出;完成Hotfix分支后,必须将代码合并develop和master分支;
-	--- start ---
-	$ git checkout -b hotfix-1.0 master
-	--- finsh ---
-	$ git checkout master
-	$ git merge --no-ff hotfix-1.0
-	$ git tag -a 1.0
-	$ git checkout develop
-	$ git merge --no-ff hotfix-1.0
-	$ git branch -d hotfix-1.0
+--- start ---
+ $ git checkout -b hotfix-1.0 master
+--- finsh ---
+ $ git checkout master
+ $ git merge --no-ff hotfix-1.0
+ $ git tag -a 1.0
+ $ git checkout develop
+ $ git merge --no-ff hotfix-1.0
+ $ git branch -d hotfix-1.0
 ```
