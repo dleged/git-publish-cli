@@ -10,16 +10,25 @@ module.exports = function(env,name){
 		case 'feature':
 			exec(`git merge develop`)
 			exec(`git merge --no-ff ${mergeBranchName} && git push`)
-			exec(`git branch -d ${mergeBranchName}`)
 			exec(`git push origin develop`)
-			break;
-		case 'hotfix':
-			exec(`git checkout develop`)
-			exec(`git merge --no-ff ${mergeBranchName} && git push`)
+			exec(`git branch -d ${mergeBranchName}`)
 			break;
 		case 'release':
 			exec(`git checkout develop`)
 			exec(`git merge --no-ff ${mergeBranchName} && git push`)
+			exec(`git checkout master`)
+			exec(`git merge --no-ff ${mergeBranchName} && git push`)
+			exec(`git tag -a ${tagVersion}`)
+			exec(`git push origin ${tagVersion}`)
+			exec(`git branch -d ${getCurentVersion()}`)
+			break;
+		case 'hotfix':
+			exec(`git checkout master`)
+			exec(`git merge --no-ff ${mergeBranchName} && git push`)
+			exec(`git checkout master`)
+			exec(`git merge --no-ff ${mergeBranchName} && git push`)
+			exec(`git tag -a ${tagVersion}`)
+			exec(`git push origin ${tagVersion}`)
 			exec(`git branch -d ${getCurentVersion()}`)
 			break;
 		default:
