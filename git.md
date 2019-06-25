@@ -39,9 +39,9 @@ develop分支是保存当前最新开发成果的分支。通常这个分支上�
 分支必须merge回:
  develop
 也即,开始一个feature分支,是从develop分支检出;完成feature分支后,必须将代码合并develop分支;
---- start ---
+	--- start ---
  $ git checkout -b feature-1.0 develop
---- finsh ---
+	--- finsh ---
  $ git checkout develop
  $ git merge --no-ff feature-1.0
  $ git branch -d feature-1.0
@@ -56,9 +56,9 @@ develop分支是保存当前最新开发成果的分支。通常这个分支上�
 分支必须merge回:
  develop and master
 也即,开始一个release分支,是release分支检出;完成feature分支后,必须将代码合并develop和master分支;
---- start ---
+	--- start ---
  $ git checkout -b release-1.0 develop
---- finsh ---
+	--- finsh ---
  $ git checkout master
  $ git merge --no-ff release-1.0
  $ git tag -a 1.0
@@ -75,9 +75,9 @@ develop分支是保存当前最新开发成果的分支。通常这个分支上�
 分支必须merge回:
  develop and master
 也即,开始一个Hotfix分支,是从develop分支检出;完成Hotfix分支后,必须将代码合并develop和master分支;
---- start ---
+	--- start ---
  $ git checkout -b hotfix-1.0 master
---- finsh ---
+	--- finsh ---
  $ git checkout master
  $ git merge --no-ff hotfix-1.0
  $ git tag -a 1.0
