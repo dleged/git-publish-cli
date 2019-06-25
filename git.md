@@ -7,7 +7,10 @@ git分支主要分为: 主干(master)、分支(branch)、标记(tag)
 > * 开发分支feature-?,必须从master checkout开发分支,测试完成后合并到预发分支
 > * bug修复分支hotfix-?,必须从master checkout开发分支,修复bug后直接合并到master
 
+![git-flow](https://raw.githubusercontent.com/dleged/git-publish-cli/master/git-model.png)
+
 #### 1. 预发分支release-?
+
 
 
 
