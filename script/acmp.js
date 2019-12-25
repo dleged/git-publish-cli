@@ -5,7 +5,6 @@ const chalk = require('chalk');
 
 function _currentBranch(){
 	let msg = exec('git br --contains');
-
 	return msg.stdout.replace('* ','').replace('\n','');
 }
 
