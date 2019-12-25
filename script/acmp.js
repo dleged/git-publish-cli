@@ -5,9 +5,9 @@ const chalk = require('chalk');
 
 function _currentBranch(){
 	let msg = exec('git br --contains');
+
 	return msg.stdout.replace('* ','').replace('\n','');
 }
-
 
 function _setUpStream(){
 	let branch = _currentBranch();
@@ -17,5 +17,6 @@ function _setUpStream(){
 module.exports = function acmp(){
 	_setUpStream();
 	let message = [].slice.apply(process.argv)[2] || 'code commit';
+		console.log('hhah');
 	exec(`git add . && git commit -m '${message}' && git push`);
 }
