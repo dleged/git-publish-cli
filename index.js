@@ -20,22 +20,12 @@ program
 
 program
 	.command('acmp [message]')
-	.description('Quickly submit code to remote branch 👍')
+	.description('Quick Submit code')
 	.action(acmp);
 
 program
 	.command('start [env] [name]')
 	.description('start iterating and branch switching')
 	.action(start);
-
-program
-	.command('finsh [env] [name]')
-	.description('finsh iterating and branch switching')
-	.action(finsh);
-
-program
-	.command('puhlish [env] [name]')
-	.description('puhlish iterating and branch switching')
-	.action(publish);
 
 program.parse(process.argv);
