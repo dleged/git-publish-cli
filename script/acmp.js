@@ -17,6 +17,6 @@ function _setUpStream(){
 module.exports = function acmp(){
 	_setUpStream();
 	let message = [].slice.apply(process.argv)[2] || 'code commit';
-		console.log('hhah');
+	console.log(message,'message');
 	exec(`git add . && git commit -m '${message}' && git push`);
 }
