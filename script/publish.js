@@ -6,7 +6,7 @@ const chalk = require('chalk');
 module.exports = function(env,name){
 	let tagVersion = 'v' + getCurentVersion();
 	if(env === 'hotfix' || env === 'release'){
-		let offBranch env === hotfix ? 'master' : 'develop';
+		let offBranch = env === hotfix ? 'master' : 'develop';
 		exec(`git checkout ${offBranch}`)
 		exec(`git merge --no-ff ${mergeBranchName} && git push`)
 		exec(`git checkout master`)

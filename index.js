@@ -4,11 +4,11 @@
 const program = require('commander');
 const pkg = require('./package.json');
 // const feature = require('./script/feature')
-const branch = require('./script/branch')
-const acmp = require('./script/acmp')
-const start = require('./script/start')
-const finsh = require('./script/finsh')
-const publish = require('./script/publish')
+const branch = require('./script/branch');
+const acmp = require('./script/acmp');
+const start = require('./script/start');
+const finsh = require('./script/finsh');
+const publish = require('./script/publish');
 require('./script/helpers/git');
 
 program
