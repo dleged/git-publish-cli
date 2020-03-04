@@ -9,23 +9,29 @@ const acmp = require('./script/acmp');
 const start = require('./script/start');
 const finsh = require('./script/finsh');
 const publish = require('./script/publish');
+
+//check allready install git 
 require('./script/helpers/git');
+
+program
+	.command('acmp [message]')
+	.description('quick submit code')
+	.action(acmp);
 
 program
 	.version(pkg.version)
 	.command('branch [barnch]')
-	.description('Checkout new branch by master')
-  .alias('br')
+	.description('checkout new branch by master')
+  	.alias('br')
 	.action(branch);
-
-program
-	.command('acmp [message]')
-	.description('Quick Submit code')
-	.action(acmp);
 
 program
 	.command('start [env] [name]')
 	.description('start iterating and branch switching')
 	.action(start);
 
+program
+	.command('finsh [env] [name]')
+	.description('finsh iterating and branch switching')
+	.action(start);
 program.parse(process.argv);
