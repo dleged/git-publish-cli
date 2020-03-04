@@ -3,12 +3,35 @@
 
 const program = require('commander');
 const pkg = require('./package.json');
+// const feature = require('./script/feature')
+const branch = require('./script/branch');
+const acmp = require('./script/acmp');
+const start = require('./script/start');
+const finsh = require('./script/finsh');
+const publish = require('./script/publish');
+
+//check allready install git 
 require('./script/helpers/git');
 
-program.version(pkg.version)
-  .usage('<command> [options]')
-	.command('branch','Checkout new branch and version add 0.0.1 by master 🔥')
-  .alias('br')
-  .command('acmp','git add . && git commit -m "message" && git push | Quick Submit code 👍')
-  .command('feature','Switch feature branches for daily development 🔨')
-	.parse(process.argv);
+program
+	.command('acmp [message]')
+	.description('quick submit code')
+	.action(acmp);
+
+program
+	.version(pkg.version)
+	.command('branch [barnch]')
+	.description('checkout new branch by master')
+  	.alias('br')
+	.action(branch);
+
+program
+	.command('start [env] [name]')
+	.description('start iterating and branch switching')
+	.action(start);
+
+program
+	.command('finsh [env] [name]')
+	.description('finsh iterating and branch switching')
+	.action(start);
+program.parse(process.argv);

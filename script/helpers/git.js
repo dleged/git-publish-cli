@@ -1,5 +1,4 @@
 'use strict';
-
 const shell = require('shelljs');
 
 if (!shell.which('git')) {
