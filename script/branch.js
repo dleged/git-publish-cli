@@ -6,7 +6,7 @@ const version = require('../package').version;
 
 function localHaveUpdate(){
 	if(exec('git pull --porcelain').stdout.trim()){
-		console.log(chalk.red('❕ 当前分支有文件变更，请先提交或者checkout'));
+		console.log(chalk.red('当前分支有文件变更，请先提交或者checkout'));
 		exit(1);
 	};
 }
