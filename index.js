@@ -30,7 +30,10 @@ require('./script/helpers/git');
 // chore: 业务无关修改，如：发版、构建工具链修改等
 
 program
+  .command('acmp [msg]')
+  .description('quick submit code')
   .option('-f, --feature', 'Add new feature')
+  .option('-b, --bugfix', 'bug fix, hotfix')
   .option('-s, --style', 'Document related')
   .option('-d, --docs', 'Style modification, word modification, formatting, etc.')
   .option('-r, --refactor', 'Refactor')
@@ -38,8 +41,6 @@ program
   .option('-t, --test', 'Test related')
   .option('-c,--chore','Business-unrelated modification')
   .option('-o,--other','Other modification')
-  .command('acmp [message]')
-	.description('quick submit code')
 	.action(acmp);
 
 program
