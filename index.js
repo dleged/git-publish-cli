@@ -13,11 +13,32 @@ const finsh = require('./script/finsh');
 //check allready install git 
 require('./script/helpers/git');
 
+// git commit -m 'new feature - #新功能'
+// Commit  type
+// bug fix - 组件 bug 修复；
+// breaking change - 不兼容的改动；
+// new feature - 新功能
+// Commit 类型，建议如下：
+
+// feat: 新特性
+// fix: 缺陷修复
+// docs: 文档相关
+// style: 样式修改、错别字修改、格式化等
+// refactor: 重构
+// perf: 性能提升
+// test: 增加测试
+// chore: 业务无关修改，如：发版、构建工具链修改等
+
 program
+  .option('-f, --feature', 'Add new feature')
+  .option('-s, --style', 'Document related')
+  .option('-d, --docs', 'Style modification, word modification, formatting, etc.')
+  .option('-r, --refactor', 'Refactor')
+  .option('-p, --perf', 'Improve performance')
+  .option('-t, --test', 'Test related')
+  .option('-c,--chore','Business-unrelated modification')
+  .option('-o,--other','Other modification')
   .command('acmp [message]')
-  .option('-d, --debug', 'output extra debugging')
-  .option('-s, --small', 'small pizza size')
-  .option('-p, --pizza-type <type>', 'flavour of pizza')
 	.description('quick submit code')
 	.action(acmp);
 
