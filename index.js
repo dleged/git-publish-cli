@@ -33,7 +33,7 @@ program
   .command('acmp [msg]')
   .description('quick submit code')
   .option('-f, --feature', 'Add new feature')
-  .option('-b, --bugfix', 'bug fix, hotfix')
+  .option('-h, --hotfix', 'fix bug, hotfix')
   .option('-s, --style', 'Document related')
   .option('-d, --docs', 'Style modification, word modification, formatting, etc.')
   .option('-r, --refactor', 'Refactor')
