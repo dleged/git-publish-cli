@@ -33,14 +33,14 @@ program
   .command('acmp [msg]')
   .description('quick submit code')
   .option('-f, --feature', 'Add new feature')
-  .option('-h, --hotfix', 'fix bug, hotfix')
+  .option('-b, --bugfix', 'fix bug, hotfix')
   .option('-s, --style', 'Document related')
   .option('-d, --docs', 'Style modification, word modification, formatting, etc.')
   .option('-r, --refactor', 'Refactor')
   .option('-p, --perf', 'Improve performance')
   .option('-t, --test', 'Test related')
-  .option('-c,--chore','Business-unrelated modification')
-  .option('-o,--other','Other modification')
+  .option('-c, --chore','Business-unrelated modification')
+  .option('-o, --other','Other modification')
 	.action(acmp);
 
 program
