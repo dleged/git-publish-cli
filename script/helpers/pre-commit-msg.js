@@ -1,16 +1,10 @@
-const msgOptions = {
-    f: 'feature',
-    b: 'butfix',
-    s: 'style',
-    d: 'docs',
-    r: 'refactor',
-    p: 'perf',
-    t: 'test',
-    c: 'chore',
-    o: 'other'
-}
+const { filterObjectValueTrue } = require('./index.js');
 
-exports.preCommitMsg = function(pre,msg){
-    let preList = [];
-    return ;
+
+exports.preCommitMsg = function(options,msg){
+    let preList = filterObjectValueTrue(options);
+    if(!preList.length){
+        preList.push('coding');
+    }
+    return preList;
 }

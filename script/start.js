@@ -1,6 +1,6 @@
 'use strict';
 
-const { exec,exit,haveChange,getCurentBranchName,getCurentVersion } = require('./helpers');
+const { exec,exit,localCodeIsModify,getCurentBranchName,getCurentVersion } = require('./helpers');
 const chalk = require('chalk');
 
 module.exports = function(env,name){

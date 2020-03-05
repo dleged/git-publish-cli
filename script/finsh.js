@@ -1,19 +1,21 @@
 'use strict';
-const { exec,exit,haveChange,getCurentBranchName,getCurentVersion } = require('./helpers');
+const { exec,getCurentVersion } = require('./helpers');
 const chalk = require('chalk');
 
 module.exports = function(env,name){
-	let mergeBranchName = `${env}-${name}`;
-	let commitMessage = `finsh mergeBranchName`
-	exec(`git-cli acmp ${commitMessage}`)
+	let mergeBranchName = `${name}`;
+	let commitMessage = `Complete branch ${mergeBranchName} coding`;
+	exec(`gitq acmp -f ${commitMessage}`)
 	switch (env) {
 		case 'feature':
+			exec(`git push --set-upstream origin ${mergeBranchName}`)
 			exec(`git merge develop`)
 			exec(`git merge --no-ff ${mergeBranchName} && git push`)
 			exec(`git push origin develop`)
 			exec(`git branch -d ${mergeBranchName}`)
 			break;
 		case 'release':
+			exec(`git push --set-upstream origin ${mergeBranchName}`)
 			exec(`git checkout develop`)
 			exec(`git merge --no-ff ${mergeBranchName} && git push`)
 			exec(`git checkout master`)
@@ -23,6 +25,7 @@ module.exports = function(env,name){
 			exec(`git branch -d ${getCurentVersion()}`)
 			break;
 		case 'hotfix':
+			exec(`git push --set-upstream origin ${mergeBranchName}`)
 			exec(`git checkout master`)
 			exec(`git merge --no-ff ${mergeBranchName} && git push`)
 			exec(`git checkout master`)

@@ -1,6 +1,6 @@
 'use strict';
 
-const { exec,exit,haveChange,getCurentBranchName } = require('./helpers');
+const { exec,exit,localCodeIsModify,getCurentBranchName } = require('./helpers');
 const chalk = require('chalk');
 let releasePre = 'release/';
 

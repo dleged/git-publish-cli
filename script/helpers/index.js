@@ -19,7 +19,7 @@ exports.setUpStream = function setUpStream(branch){
 	_exec_(`git push --set-upstream origin ${branch}`);
 }
 
-exports.haveChange = function(){
+exports.localCodeIsModify = function(){
 		if(_exec_('git status --porcelain').stdout.trim()){
 			console.log(chalk.red('❕ 当前分支有文件变更，请先提交或者checkout'));
 			__exit__(1);
@@ -37,3 +37,13 @@ exports.getCurentVersion = function(){
 	if(!pkg.version) throw Error('s there version in package.json?');
 	return pkg.version;
 }
+
+exports.filterObjectValueTrue = function(obj){
+	return 	Object.keys(obj).reduce((acc,key) => {
+		if(obj[key]){
+			acc.push(key);
+		}
+		return acc;
+	},[]);
+}
+
