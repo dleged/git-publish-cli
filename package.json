@@ -1,9 +1,9 @@
 {
-  "name": "git-publish-cli",
+  "name": "git-flow",
   "version": "1.0.0",
   "mail": "duanduanf@gmail.com",
   "bin": {
-    "gitq": "index.js"
+    "gf": "index.js"
   },
   "description": "",
   "main": "index.js",

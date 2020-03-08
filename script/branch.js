@@ -30,7 +30,7 @@ module.exports = function(env,name) {
 		name = version;
 	}
 	let newDailyBr = `feature-${name}` || `feature-${version}`;
-	if(exec(`git checkout -b ${newDailyBr}`) !== 0) {
+	if(exec(`git checkout -b ${newDailyBr} master`) !== 0) {
 		console.log(`✅ 新建分支${newDailyBr}完成`);
 	};
 }

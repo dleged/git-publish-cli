@@ -30,9 +30,9 @@ require('./script/helpers/git');
 // chore: 业务无关修改，如：发版、构建工具链修改等
 
 program
-  .command('acmp [msg]')
+  .command('cm [msg]')
   .description('quick submit code')
-  .option('-f, --feature', 'Add new feature')
+  .option('-f, --feat', 'Add new feature')
   .option('-b, --bugfix', 'fix bug, hotfix')
   .option('-s, --style', 'Document related')
   .option('-d, --docs', 'Style modification, word modification, formatting, etc.')
@@ -45,7 +45,7 @@ program
 
 program
 	.version(pkg.version)
-	.command('branch [barnch]')
+	.command('branch [barnchName] [checkoutBranch]')
 	.description('checkout new branch by master')
   .alias('br')
 	.action(branch);
