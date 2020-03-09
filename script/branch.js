@@ -23,14 +23,14 @@ function isDevelop() {
 	return true;
 }
 
-module.exports = function(env,name) {
+module.exports = function(barnchName = 'feature',checkoutBranch = 'master') {
 	localCodeIsModify();
 	if(!isDevelop()) return false;
 	if(typeof name === 'object' ){
 		name = version;
 	}
-	let newDailyBr = `feature-${name}` || `feature-${version}`;
-	if(exec(`git checkout -b ${newDailyBr} master`) !== 0) {
+	let newDailyBr = `${barnchName}-${name}`;
+	if(exec(`git checkout -b ${newDailyBr} ${checkoutBranch}`) !== 0) {
 		console.log(`✅ 新建分支${newDailyBr}完成`);
 	};
 }
