@@ -26,7 +26,7 @@ function isDevelop() {
 module.exports = function(brName,baseBranch = 'master') {
 	localCodeIsModify();
 	if(!isDevelop()) return false;
-	let prefix = env || 'feature';
+	let prefix = brName || 'feature';
 	if(typeof brName === 'object' ){
 		brName = version;
 	}
