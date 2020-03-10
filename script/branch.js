@@ -31,7 +31,9 @@ module.exports = function(brName,baseBranch = 'master') {
 		brName = version;
 	}
 	let newDailyBr = `${prefix}-${brName}`;
-	if(exec(`git checkout -b ${newDailyBr} ${baseBranch}`) !== 0) {
-		console.log(`✅ 新建分支${newDailyBr}完成`);
-	};
+
+	console.log(`git checkout -b ${newDailyBr} ${baseBranch}`);
+	// if(exec(`git checkout -b ${newDailyBr} ${baseBranch}`) !== 0) {
+	// 	console.log(`✅ 新建分支${newDailyBr}完成`);
+	// };
 }
