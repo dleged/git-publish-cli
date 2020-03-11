@@ -6,7 +6,7 @@ const version = require('../package').version;
 
 function localHaveUpdate(){
 	if(exec('git pull --porcelain').stdout.trim()){
-		console.log(chalk.red('当前分支有文件变更，请先提交或者checkout'));
+		console.log(chalk.red('There are file changes in the current branch, please commit or checkout first'));
 		exit(1);
 	};
 }
@@ -16,21 +16,19 @@ function isDevelop() {
 		if(exec('git merge develop && git co develop').code === 0){
 			return true;
 		}else{
-			console.error('请先合并当前branch到master分支！');
+			console.error('please merge the current branch into the master branch first！');
 			return false;
 		}
 	}
 	return true;
 }
 
-module.exports = function(barnchName = 'feature',checkoutBranch = 'master') {
+module.exports = function(brname,baseBranch = 'develop') {
 	localCodeIsModify();
-	if(!isDevelop()) return false;
-	if(typeof name === 'object' ){
-		name = version;
-	}
-	let newDailyBr = `${barnchName}-${name}`;
-	if(exec(`git checkout -b ${newDailyBr} ${checkoutBranch}`) !== 0) {
-		console.log(`✅ 新建分支${newDailyBr}完成`);
+	exec(`git checkout ${baseBranch}`);
+	exec(`git pull`);
+	if(!exec(`git checkout -b ${brname} ${baseBranch}`).stderr) {
+		exec(`git checkout ${brname}`);
+		console.log(`✅new branch ${brname} completed`);
 	};
 }
