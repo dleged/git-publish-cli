@@ -17,7 +17,7 @@ program
   .command('cm [msg]')
   .description('quick submit code')
   .option('-f, --feat', 'Add new feature')
-  .option('-fix, --fix', 'Fix bug, hotfix')
+  .option('-x, --fix', 'Fix bug, hotfix')
   .option('-s, --style', 'Document related')
   .option('-dc, --docs', 'Style modification, word modification, formatting, etc.')
   .option('-rf, --refactor', 'Refactor')
@@ -31,21 +31,27 @@ program
 
 program
 	.version(pkg.version)
-	.command('branch [brName] [baseBranch]')
-	.description('checkout new branch by master')
+	.command('branch [brname] [baseBranch]')
+  .description('checkout new branch by other branch(default develop branch)')
   .alias('br')
 	.action(branch);
 
 program
-	.command('start [env] [name]')
+	.command('start')
   .description('start iterating and branch switching')
-  .alias('st')
+  .alias('s')
+  .option('-f, --feature <name>', 'Branch prefixed with feature')
+  .option('-x, --hotfix <name>', 'Branch prefixed with hotfix')
+  .option('-r, --release <name>', 'Branch prefixed with release')
 	.action(start);
 
 program
 	.command('finsh [env] [name]')
   .description('finsh iterating and branch switching')
-  .alias('fi')
+  .alias('f')
+  .option('-f, --feature <name>', 'Branch prefixed with feature')
+  .option('-x, --hotfix <name>', 'Branch prefixed with hotfix')
+  .option('-r, --release <name>', 'Branch prefixed with release')
   .action(finsh);
   
 program.parse(process.argv);

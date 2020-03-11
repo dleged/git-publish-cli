@@ -20,5 +20,6 @@ module.exports = function acmp(msg){
 	msg = prefix + msg;
 	exec(`git add . && git commit -m '${msg}'`);
 	_setUpStream();//setUpStream push
+	exec(`git push`);
 	console.log(chalk.green('push code success into remote'));
 }

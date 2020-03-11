@@ -23,18 +23,12 @@ function isDevelop() {
 	return true;
 }
 
-module.exports = function(brName,baseBranch = 'master') {
+module.exports = function(brname,baseBranch = 'develop') {
 	localCodeIsModify();
-	if(!isDevelop()) return false;
-	let prefix = brName || 'feature';
-	if(typeof brName === 'object' ){
-		brName = version;
-	}
-	let newDailyBr = `${prefix}-${brName}`;
-
-	console.log(`git checkout -b ${newDailyBr} ${baseBranch}`);
-	if(exec(`git checkout -b ${newDailyBr} ${baseBranch}`) !== 0) {
-		exec(`git checkout ${newDailyBr}`);
-		console.log(`✅ 新建分支${newDailyBr}完成`);
+	exec(`git checkout ${baseBranch}`);
+	exec(`git pull`);
+	if(!exec(`git checkout -b ${brname} ${baseBranch}`).stderr) {
+		exec(`git checkout ${brname}`);
+		console.log(`✅new branch ${brname} completed`);
 	};
 }
