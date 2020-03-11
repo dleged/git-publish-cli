@@ -46,7 +46,7 @@ program
 	.action(start);
 
 program
-	.command('finsh [env] [name]')
+	.command('finsh')
   .description('finsh iterating and branch switching')
   .alias('f')
   .option('-f, --feature <name>', 'Branch prefixed with feature')

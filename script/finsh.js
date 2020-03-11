@@ -2,14 +2,15 @@
 const { exec,getCurentVersion } = require('./helpers');
 const chalk = require('chalk');
 
-module.exports = function(env,brname){
+function finshEnvBranch(env,brname){
 	let tagName = brname;
 	brname = `${env}/${brname}`;
+	console.log(env,brname);
 	switch (env) {
 		case 'feature':
-			exec(`git push --set-upstream origin ${brname}`)
-			exec(`git merge develop`)
-			exec(`git merge --no-ff ${brname} && git push`)
+			exec(`git push -u origin ${brname}`)
+			exec(`git checkout develop`)
+			exec(`git merge --no-ff ${brname}`)
 			exec(`git push origin develop`)
 			exec(`git branch -d ${brname}`)
 			break;
