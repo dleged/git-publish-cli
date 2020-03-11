@@ -1,6 +1,6 @@
 'use strict';
 
-const { exec,exit,localCodeIsModify,getCurentBranchName,getCurentVersion,filterObjectValueTrue } = require('./helpers');
+const { exec } = require('./helpers');
 const chalk = require('chalk');
 function logs(msg){
 	console.log(chalk.green(msg));
@@ -13,8 +13,8 @@ function pritLogs(base,brname){
 	logs(`- You are now on branch '${brname}'`);
 };
 
-function startEvnBranch(env,brname){
-	brname = `${env}-${brname}`;
+function startEnvBranch(env,brname){
+	brname = `${env}/${brname}`;
 	switch (env) {
 		case 'feature':
 			exec(`git checkout -b ${brname} develop`);
@@ -38,7 +38,7 @@ module.exports = function(){
 	for(let i = 0,len = keys.length; i < len; i++){
 		let env = keys[i];
 		if(opts[env]){
-			startEvnBranch(env,opts[env]);
+			startEnvBranch(env,opts[env]);
 			break;
 		 }
 	}
