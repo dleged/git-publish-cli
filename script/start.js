@@ -3,14 +3,14 @@
 const { exec } = require('./helpers');
 const chalk = require('chalk');
 function logs(msg){
-	console.log(chalk.green(msg));
+	console.log(msg);
 }
 
-function pritLogs(base,brname){
+function pritLogs(brname,base){
 	logs(' ');
-	logs('Summary of actions:');
-	logs(`- A new branch ${brname} was created, based on '${base}'`);
-	logs(`- You are now on branch '${brname}'`);
+	logs('Operation information:');
+	logs(`- Check out a branch '${chalk.green(brname)}' on '${chalk.green(base)}' branch`);
+	logs(`- You are now on branch '${chalk.green(brname)}'`);
 };
 
 function startEnvBranch(env,brname){
@@ -18,15 +18,15 @@ function startEnvBranch(env,brname){
 	switch (env) {
 		case 'feature':
 			exec(`git checkout -b ${brname} develop`);
-			pritLogs(env,brname);
+			pritLogs(brname,'develop');
 			break;
 		case 'hotfix':
 			exec(`git checkout -b ${brname} master`);
-			pritLogs(env,brname);
+			pritLogs(brname,'master');
 			break;
 		case 'release':
 			exec(`git checkout -b ${brname} develop`);
-			pritLogs(env,brname);
+			pritLogs(brname,'develop');
 			break;
 		default:
 	}
