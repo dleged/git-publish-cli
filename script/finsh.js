@@ -31,7 +31,7 @@ module.exports = function () {
 	}
 }
 
-//todo: merge 有冲突退出
+//todo: merge 有冲突退出?
 function runFinshFeature(brname) {
 	let cmdList = [
 		`git checkout develop && git pull`,
@@ -39,11 +39,12 @@ function runFinshFeature(brname) {
 		`git push origin develop`,
 		`git branch -d ${brname}`
 	];
-	execCmdList(cmdList);
+
+	let errorType = execCmdList(cmdList);
 	pritLogs([
 		`- merge the ${brname} into develop;`,
 		`- delete branch ${brname}`
-	]);
+	],errorType);
 }
 
 function runFinshRelease(brname,tagName) {
@@ -56,13 +57,14 @@ function runFinshRelease(brname,tagName) {
 		`git push origin ${tagName}`,
 		`git branch -d ${brname}`
 	];
-	execCmdList(cmdList);
+
+	let errorType = execCmdList(cmdList);
 	pritLogs([
 		`- merge the ${brname} into develop;`,
 		`- merge the ${brname} into master;`,
 		`- git push origin tag ${tagName};`,
 		`- delete branch ${brname}`
-	]);
+	], errorType);
 }
 
 function runFinshHotfix(brname) {
@@ -73,17 +75,23 @@ function runFinshHotfix(brname) {
 		`git merge --no-ff ${brname} && git push`,
 		`git branch -d ${brname}`
 	];
-	execCmdList(cmdList);
+
+	let errorType = execCmdList(cmdList);
 	pritLogs([
 		`- merge the ${brname} into develop;`,
 		`- merge the ${brname} into master;`,
 		`- delete branch ${brname}`
-	]);
+	], errorType);
 }
 
 
 
-function pritLogs(msgs) {
+function pritLogs(msgs,errorType) {
+	if(errorType.mergeConflict){
+		msgs.push(chalk.red(`- reject ${errorType.mergeConflict}`));
+	}
+
+	console.log('\n');
 	console.log('Operation information:');
 	msgs.forEach((msg) => {
 		console.log(chalk.green(msg));

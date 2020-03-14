@@ -5,6 +5,11 @@ const chalk = require('chalk');
 const path = require('path');
 let _exec_ = shell.exec;
 
+//_exec_ run stderr
+let stdoutErrorType = {
+	mergeConflict: null,
+}
+
 function _exit_(code){
 	process.exit(code);
 }
@@ -20,8 +25,8 @@ exports.setUpStream = function setUpStream(branch){
 	// if(msg.includes(`origin/${branch}/n`)){
 	// 	return _exec_('git push;')//todo faster	
 	// }
-	console.log(`git push --set-upstream origin ${branch}`)
-	return _exec_(`git push --set-upstream origin ${branch}`);
+
+	return _exec_(`git push --set-upstream origin ${branch} && git push`);
 }
 
 exports.localCodeIsModify = function(){
@@ -57,7 +62,25 @@ exports.filterObjectValueTrue = function(obj){
 	},[]);
 }
 
+
+
+function cmdErrorTypeHandle(stdout,cmdErrorType){
+	if(stdout.includes('Merge conflict')){
+		cmdErrorType['mergeConflict'] = stdout;
+		console.log('\n');
+		console.log('Error information:');
+		console.log(chalk.red('- ' + stdout));
+		console.log(chalk.blue('- ' + 'plase fix conflicts and then commit the result,and try again'));
+		_exit_(1);
+	}
+	return cmdErrorType;
+}
 exports.execCmdList = function(list){
-	list.forEach(cmd => _exec_(cmd));
+	let errorType = Object.assign(stdoutErrorType,{});
+	list.forEach(cmd => {
+		let stdout = _exec_(cmd);
+		errorType = cmdErrorTypeHandle(stdout,errorType)
+	});
+	return errorType;
 }
 

@@ -1,16 +1,26 @@
 {
-  "name": "git-flow",
+  "name": "git-flow-workflow",
   "version": "1.0.0",
+  "description": "The complete solution for git flow workflow.Faster and cooler",
   "mail": "duanduanf@gmail.com",
+  "keywords": [
+    "git",
+    "git flow",
+    "gitflow workflow",
+    "cli",
+    "branch manage",
+    "acmp",
+    "feature",
+    "release",
+    "hotfix"
+  ],
   "bin": {
-    "gf": "index.js"
+    "gitfw": "index.js"
   },
-  "description": "",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
