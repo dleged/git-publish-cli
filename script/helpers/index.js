@@ -5,7 +5,7 @@ const chalk = require('chalk');
 const path = require('path');
 let _exec_ = shell.exec;
 
-function __exit__(code){
+function _exit_(code){
 	process.exit(code);
 }
 
@@ -13,21 +13,26 @@ exports.exec = function(){
 	return _exec_(...[].slice.call(arguments))
 }
 
-exports.exit = __exit__;
+exports.exit = _exit_;
 
 exports.setUpStream = function setUpStream(branch){
+	// let msg = _exec_('git branch -r');//fetch remote branch
+	// if(msg.includes(`origin/${branch}/n`)){
+	// 	return _exec_('git push;')//todo faster	
+	// }
+	console.log(`git push --set-upstream origin ${branch}`)
 	return _exec_(`git push --set-upstream origin ${branch}`);
 }
 
 exports.localCodeIsModify = function(){
 		if(_exec_('git status --porcelain').stdout.trim()){
 			console.log(chalk.red('please commit your changes or stash them before you switch branches.'));
-			__exit__(1);
+			_exit_(1);
 		};
 }
 
 exports.getCurentBranchName = function(){
-	return shell.exec('git rev-parse --abbrev-ref HEAD', {silent: true}).toString();
+	return _exec_('git rev-parse --abbrev-ref HEAD', {silent: true}).toString();
 }
 /**
  * 
@@ -52,5 +57,7 @@ exports.filterObjectValueTrue = function(obj){
 	},[]);
 }
 
-
+exports.execCmdList = function(list){
+	list.forEach(cmd => _exec_(cmd));
+}
 
